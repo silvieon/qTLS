@@ -1,0 +1,171 @@
+﻿Diagnose log at 2026-09-21T22:37:53Z
+
+AppPath: /usr/sbin/git-credential-manager
+InstallDir: /usr/lib/share/git-credential-manager/
+Version: 2.9.1+8c206fd143990e78a9dcc20e8dcd0b4c7d474b98
+
+------------
+Diagnostic: Environment
+Skipped: False
+Success: True
+Exception: None
+Log:
+OSType: Linux
+OSVersion: EndeavourOS
+Reading environment variables... OK
+ Variables:
+XDG_CURRENT_DESKTOP=sway:wlroots
+DEBUGINFOD_URLS=https://debuginfod.archlinux.org 
+INVOCATION_ID=4dff7ed23396473999d2a84a75010158
+_=/usr/sbin/git-credential-manager
+COLORTERM=truecolor
+LC_IDENTIFICATION=en_CA.UTF-8
+LC_MONETARY=en_CA.UTF-8
+PWD=/home/silvieon/Repositories/qTLS
+LANG=en_CA.UTF-8
+LOGNAME=silvieon
+KITTY_WINDOW_ID=1
+OLDPWD=/home/silvieon/Repositories
+MEMORY_PRESSURE_WRITE=c29tZSAyMDAwMDAgMjAwMDAwMAA=
+SHLVL=1
+LC_MEASUREMENT=en_CA.UTF-8
+SWAYSOCK=/run/user/1000/sway-ipc.1000.1105.sock
+TERM=xterm-kitty
+XDG_VTNR=2
+LC_NUMERIC=en_CA.UTF-8
+XCURSOR_SIZE=24
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+SHELL=/bin/bash
+SYSTEMD_EXEC_PID=742
+XDG_SESSION_TYPE=wayland
+XDG_SESSION_ID=c1
+VSSCRIPT_PATH=/usr/lib/python3.14/site-packages/vapoursynth/libvsscript.so
+TERMINFO=/usr/lib/kitty/terminfo
+XDG_SEAT=seat0
+LC_NAME=en_CA.UTF-8
+MOTD_SHOWN=pam
+HOME=/home/silvieon
+LC_ADDRESS=en_CA.UTF-8
+WAYLAND_DISPLAY=wayland-1
+LC_TELEPHONE=en_CA.UTF-8
+LC_PAPER=en_CA.UTF-8
+I3SOCK=/run/user/1000/sway-ipc.1000.1105.sock
+GIT_TRACE2_PARENT_SID=55196aa9-4cdf-40ae-82d8-062135bf3084
+PATH=/home/silvieon/.local/bin:/home/silvieon/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
+DESKTOP_STARTUP_ID=8e408255a6792ef57d5048cc9687aef2
+BINARYEN_ROOT=/usr
+XDG_SESSION_CLASS=user
+USER=silvieon
+XDG_SESSION_DESKTOP=sway
+KITTY_PID=2188928
+MAIL=/var/spool/mail/silvieon
+XDG_RUNTIME_DIR=/run/user/1000
+DISPLAY=:0
+KITTY_PUBLIC_KEY=1:^Sd9sE)Si~K7F?2;tOovl`$?uaqzes+ixPW&?2>A
+LC_TIME=en_CA.UTF-8
+MEMORY_PRESSURE_WATCH=/sys/fs/cgroup/system.slice/system-ly.slice/ly@tty2.service/memory.pressure
+KITTY_INSTALLATION_DIR=/usr/lib/kitty
+
+
+------------
+Diagnostic: File system
+Skipped: False
+Success: True
+Exception: None
+Log:
+Temporary directory is '/tmp/'...
+Checking basic file I/O...
+Writing to temporary file '/tmp/21504d5ca99dc31c93bccb27'... OK
+Reading from temporary file '/tmp/21504d5ca99dc31c93bccb27'... OK
+Deleting temporary file '/tmp/21504d5ca99dc31c93bccb27'... OK
+Testing IFileSystem instance...
+UserHomePath: /home/silvieon
+UserDataDirectoryPath: /home/silvieon/.gcm
+GetCurrentDirectory(): /home/silvieon/Repositories/qTLS
+
+------------
+Diagnostic: Networking
+Skipped: False
+Success: True
+Exception: None
+Log:
+Checking networking and HTTP stack...
+Creating HTTP client... OK
+IsNetworkAvailable: True
+Sending HEAD request to http://example.com... OK
+Sending HEAD request to https://example.com... OK
+Acquiring free TCP port... OK
+Testing local HTTP loopback connections...
+Creating new HTTP listener for http://localhost:33803/... OK
+Waiting for loopback connection... OK
+Writing response... OK
+Waiting for response data... OK
+Loopback connection data OK
+
+------------
+Diagnostic: Git
+Skipped: False
+Success: True
+Exception: None
+Log:
+Getting Git version... OK
+Git version is '2.55.0'
+Locating current repository...Git repository at '/home/silvieon/Repositories/qTLS/.git'
+ OK
+Listing all Git configuration... OK
+Git configuration:
+file:/home/silvieon/.gitconfig	user.email=ywang1051@gmail.com
+file:/home/silvieon/.gitconfig	user.name=silvieon
+file:/home/silvieon/.gitconfig	credential.helper=manager
+file:/home/silvieon/.gitconfig	credential.credentialstore=secretservice
+file:.git/config	core.repositoryformatversion=0
+file:.git/config	core.filemode=true
+file:.git/config	core.bare=false
+file:.git/config	core.logallrefupdates=true
+file:.git/config	remote.upstream.url=https://github.com/silvieon/LWE-SFTP
+file:.git/config	remote.upstream.fetch=+refs/heads/*:refs/remotes/upstream/*
+file:.git/config	branch.main.remote=origin
+file:.git/config	branch.main.merge=refs/heads/main
+file:.git/config	remote.origin.url=https://github.com/silvieon/qTLS.git
+file:.git/config	remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+
+
+------------
+Diagnostic: Credential storage
+Skipped: False
+Success: True
+Exception: None
+Log:
+ICredentialStore instance is of type: CredentialStore
+Writing test credential... OK
+Reading test credential... OK
+Deleting test credential... OK
+
+------------
+Diagnostic: Microsoft authentication (AAD/MSA)
+Skipped: False
+Success: True
+Exception: None
+Log:
+Broker is not enabled.
+Gathering MSAL token cache data... OK
+CacheDirectory: /home/silvieon/.local/.IdentityService
+CacheFileName: msal.cache
+CacheFilePath: /home/silvieon/.local/.IdentityService/msal.cache
+KeyringCollection: 
+KeyringSchemaName: 
+KeyringSecretLabel: 
+KeyringAttribute1: (,)
+KeyringAttribute2: (,)
+Creating cache helper... OK
+Verifying MSAL token cache persistence... OK
+
+------------
+Diagnostic: GitHub API
+Skipped: False
+Success: True
+Exception: None
+Log:
+Using 'https://github.com/' as API target.
+Querying '/meta' endpoint... OK
+
