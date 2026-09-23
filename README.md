@@ -1,31 +1,29 @@
 # qTLS
 
-Experimental TLS 1.3 implementation with a pluggable byte-transport layer.
+Experimental TLS 1.3 implementation intended to become a quantum-resistant,
+transport-agnostic replacement layer for internal TLS.
 
-## Development target
+## Current snapshot
 
-qTLS is being built in three stages:
+This snapshot contains a complete qTLS client/server X25519 + TLS_AES_128_GCM_SHA256
+handshake path, encrypted application data, handshake message reassembly across
+records, dummy ChangeCipherSpec tolerance, alerts/close-notify, and a socket-facing
+compatibility API.
 
-1. **TLS 1.3 implementation** — interoperate with existing TLS 1.3 peers.
-2. **Post-quantum hybrid key exchange** — add X25519 + ML-KEM-768.
-3. **Compatibility layer** — expose an API compatible with common TLS APIs so existing internal services can migrate with minimal changes.
-
-The transport layer is deliberately separate from TLS. A transport only needs to provide a reliable, ordered byte stream, allowing TCP and custom packet transports to share the same TLS engine.
-
-## Current status
-
-This repository currently contains the protocol/crypto/record foundation. It is **not yet a secure replacement for TLS**.
-
-Do not use it for production or sensitive traffic until the handshake, authentication, interoperability, negative testing, fuzzing, and security review are complete.
-
-## Install
+Run:
 
 ```bash
-python3 -m pip install -e .
+python3 -m pip install .
+python3 -m pytest -q
+python3 scripts/openssl_interop.py
 ```
 
-Run tests:
+The qTLS↔qTLS integration test is expected to pass. The OpenSSL smoke test is the
+interoperability gate and must pass before treating qTLS as a replacement TLS stack.
 
-```bash
-python3 -m pytest
-```
+This is still **not production-ready**. Certificate-chain/path validation,
+full trust-store integration, hostname policy, PSK/resumption, HRR, KeyUpdate,
+complete extension handling, fuzzing, negative tests, and security review remain.
+
+The next protocol mode is X25519MLKEM768, standardized for TLS 1.3 in RFC 10024.
+It is deliberately kept separate from the first interoperability gate.

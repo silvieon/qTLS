@@ -1,4 +1,4 @@
-g"""TLS record AEAD primitive.
+"""TLS record AEAD primitive.
 
 TLS 1.3 constructs the per-record nonce by XORing the static IV with the
 64-bit record sequence number encoded as a big-endian integer.

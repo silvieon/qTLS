@@ -36,7 +36,10 @@ class RecordLayer:
         version = header[1:3]
         length = int.from_bytes(header[3:5], "big")
 
-        if version != LEGACY_RECORD_VERSION:
+        # TLS 1.3 endpoints commonly use 0x0301 for the initial plaintext
+        # ClientHello record for middlebox compatibility. Encrypted TLS 1.3
+        # records use 0x0303.
+        if version not in (b"\x03\x01", b"\x03\x02", b"\x03\x03"):
             raise TLSAlert("unexpected TLS record legacy_version")
         if length > MAX_RECORD_LENGTH:
             raise TLSAlert("TLS record exceeds maximum size")
@@ -86,6 +89,9 @@ class RecordLayer:
             raise TLSAlert("read cipher not installed")
 
         outer_type, ciphertext = self._read_record()
+        if outer_type == ContentType.CHANGE_CIPHER_SPEC:
+            # TLS 1.3 permits a dummy CCS for middlebox compatibility.
+            return ContentType.CHANGE_CIPHER_SPEC, b""
         if outer_type != ContentType.APPLICATION_DATA:
             raise TLSAlert("encrypted TLS record has wrong outer content type")
 
